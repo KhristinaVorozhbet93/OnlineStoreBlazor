@@ -1,4 +1,25 @@
 ﻿@page "/"
 
 <h1>Добро пожаловать в интернет-магазин "Всё о книгах"</h1>
-Текущее время: @DateTime.Now;
+Текущее время: @now;
+
+@code {
+    DateTime now = DateTime.Now;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        Task.Run(async () =>
+        {
+            while (true)
+            {
+                await Task.Delay(1000);
+                now = DateTime.Now;
+                await InvokeAsync(() => StateHasChanged());
+            }
+        });
+
+    }
+
+  }
