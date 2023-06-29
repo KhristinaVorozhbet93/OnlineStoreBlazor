@@ -1,0 +1,34 @@
+﻿@page "/catalog"
+@using OnlineStoreBlazor.Models;
+@inject ICatalog catalog
+
+<h3>Каталог нашего магазина</h3>
+@foreach(var product in _products)
+{
+    <table>
+        <tr>Название товара</tr>
+        <tr>Цена</tr>
+        <tr>
+            <td>
+                @product.Name
+            </td>
+            <td>
+                @product.Price
+            </td>
+        </tr>
+    </table>
+
+@*    <div>Название товара: @product.Name</div>
+    <div>Название товара: @product.Price</div>
+    <hr />*@
+}
+
+@code {
+    private List<Product> _products;
+
+    protected override void OnInitialized()
+    {
+        _products = catalog.GetProducts(); 
+    }
+
+}
