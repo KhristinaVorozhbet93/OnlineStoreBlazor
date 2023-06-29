@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using OnlineStoreBlazor;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();

@@ -1,0 +1,68 @@
+﻿.mainCatalog {
+    text-align:center
+}
+.box {
+    width: 860px;
+}
+.flx {
+    display: flex;
+}
+.nameOfProduct, 
+.priceOfProduct, 
+.producedAtProduct, 
+.expireAtProduct, 
+.descriptionOfProduct{ 
+    height: 35px;
+    border: 1px solid black;
+}
+.nameOfProduct, 
+.producedAtProduct,
+.expireAtProduct {
+    width: 200px;
+}
+.priceOfProduct {
+    width: 80px;
+}
+.descriptionOfProduct {
+    width: 160px;
+}
+.name,
+.price, 
+.producedAt, 
+.expiredAt, 
+.description{
+    height: 50px;
+    text-align: center;
+    border: 1px solid black;
+    margin: 2px;
+}
+.name {
+    width: 200px;
+}
+.price {
+    width: 80px;
+}
+.producedAt,
+.expiredAt {
+    width: 200px;
+}
+.description {
+    width: 160px;
+}
+.name,
+.producedAt, 
+.description{
+    background-color: #64c3df;
+}
+.price,
+.expiredAt {
+    background-color: #43a3d5;
+}
+.colorOne {
+    background-color: #e3e3e3;
+}
+
+.colorTwo {
+    background-color: #ebebeb;
+}
+

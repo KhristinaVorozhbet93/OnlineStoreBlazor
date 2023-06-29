@@ -2,33 +2,59 @@
 @using OnlineStoreBlazor.Models;
 @inject ICatalog catalog
 
-<h3>Каталог нашего магазина</h3>
-@foreach(var product in _products)
+<h1 class="mainCatalog">Каталог магазина продуктов</h1>
+<table>
+    <tr>
+        <div class="flx">
+            <div class="name">Название товара</div>
+            <div class="price">Цена</div>
+            <div class="producedAt">Дата производства</div>
+            <div class="expiredAt">Срок годности</div>
+            <div class="description">Описание</div>
+        </div>
+    </tr>
+</table>
+@foreach (var product in _products)
 {
-    <table>
-        <tr>Название товара</tr>
-        <tr>Цена</tr>
-        <tr>
-            <td>
-                @product.Name
-            </td>
-            <td>
-                @product.Price
-            </td>
-        </tr>
-    </table>
-
-@*    <div>Название товара: @product.Name</div>
-    <div>Название товара: @product.Price</div>
-    <hr />*@
+    <div class="box">
+        <table>
+            <tr>
+                <td class="colorOne">
+                    <div class="nameOfProduct">
+                        @product.Name
+                    </div>
+                </td>
+                <td class="colorTwo">
+                    <div class="priceOfProduct">
+                        @product.Price
+                    </div>
+                </td>
+                <td class="colorOne">
+                    <div class="producedAtProduct">
+                        @product.ProducedAt
+                    </div>
+                </td>
+                <td class="colorTwo">
+                    <div class="expireAtProduct">
+                        @product.ExpiredAt
+                    </div>
+                </td>
+                <td class="colorOne">
+                    <div class="descriptionOfProduct">
+                        @product.Description
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 }
+
 
 @code {
     private List<Product> _products;
 
     protected override void OnInitialized()
     {
-        _products = catalog.GetProducts(); 
+        _products = catalog.GetProducts();
     }
-
 }
