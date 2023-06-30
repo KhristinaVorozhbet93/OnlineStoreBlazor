@@ -1,10 +1,12 @@
 ﻿@page "/"
+@implements IDisposable
 
 <h1>Добро пожаловать в интернет-магазин "Всё о книгах"</h1>
 Текущее время: @now;
 
 @code {
-    DateTime now = DateTime.Now;
+    private DateTime now = DateTime.Now;
+    private bool _disposed;
 
     protected override void OnInitialized()
     {
@@ -12,14 +14,16 @@
 
         Task.Run(async () =>
         {
-            while (true)
+            while (!_disposed)
             {
                 await Task.Delay(1000);
                 now = DateTime.Now;
                 await InvokeAsync(() => StateHasChanged());
             }
         });
-
     }
-
+    public void Dispose()
+    {
+        _disposed = true; 
+    }
   }
